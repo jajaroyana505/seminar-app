@@ -43,8 +43,18 @@ class Model_peserta extends CI_Model
 
       ];
    }
-   public function save($data)
+   public function save()
    {
+      $data = array(
+         "user_id" => ($this->session->userdata('user_data'))->user_id,
+         "nama" => $this->input->post('nama'),
+         "nim" => $this->input->post('nim'),
+         "semester" => $this->input->post('semester'),
+         "prodi" => $this->input->post('prodi'),
+         "kampus" => $this->input->post('kampus'),
+         "email" => $this->input->post('email'),
+         "no_tlp" => $this->input->post('no_tlp'),
+      );
       $this->db->insert('peserta', $data);
    }
    public function get_user($data)

@@ -14,6 +14,8 @@ class User extends CI_Controller
 		$this->load->library('form_validation');
 		$this->load->model('model_peserta');
 		$this->load->model('model_pendaftaran');
+		$this->load->model('model_htm');
+		$this->load->model('model_pembayaran');
 
 		$this->peserta = new Model_peserta;
 	}
@@ -34,31 +36,45 @@ class User extends CI_Controller
 			$this->load->view('template/footer');
 		} else {
 
-			$data_pendaftaran = array(
-				"id_seminar" => $this->input->post('id_seminar'),
-				"user_id" => ($this->session->userdata('user_data'))->user_id,
-				"tanggal_pendaftaran" => date('d-m-Y')
-			);
 
-			$data_peserta = array(
-				"user_id" => ($this->session->userdata('user_data'))->user_id,
-				"nama" => $this->input->post('nama'),
-				"nim" => $this->input->post('nim'),
-				"semester" => $this->input->post('semester'),
-				"prodi" => $this->input->post('prodi'),
-				"kampus" => $this->input->post('kampus'),
-				"email" => $this->input->post('email'),
-				"no_tlp" => $this->input->post('no_tlp'),
-			);
+
+
+
+
 
 			$pendaftaran = new Model_pendaftaran;
 			$peserta = new Model_peserta;
 
-			$pendaftaran->save($data_pendaftaran);
-			$peserta->save($data_peserta);
+			$pendaftaran->save();
+			$peserta->save();
+
+
+			$htm = new Model_htm;
+			echo $htm->get_htm($this->input->post('id_seminar'));
+
+
+
+			$pembayaran = new Model_pembayaran;
+			$pembayaran->save();
+
+
 			var_dump($data_pendaftaran);
 			echo "<br>";
 			var_dump($data_peserta);
+
+			redirect(base_url('user/bayar'));
 		}
+	}
+
+	public function bayar()
+	{
+		echo ($this->session->userdata('user_data'))->user_id;
+		$pembayaran = new Model_pembayaran;
+		$data = array(
+			"pembayaran" => $pembayaran->getByUserId(($this->session->userdata('user_data'))->user_id)
+		);
+		var_dump($data);
+
+		$this->load->view('seminar/bayar', $data);
 	}
 }
