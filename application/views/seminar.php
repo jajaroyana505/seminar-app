@@ -20,7 +20,7 @@
       <div class="kotak">
          <h1>Seminar</h1>
          <img src="<?= base_url('assets/img/seminar.jpeg'); ?>" width="100%" alt="">
-         <a href="<?= base_url('seminar/daftar'); ?>">Daftar sekarang</a>
+         <a href="<?= base_url('user/daftar_seminar'); ?>/1">Daftar sekarang</a>
       </div>
    </center>
 </body>

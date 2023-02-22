@@ -44,7 +44,6 @@ class Model_login_google extends CI_Model
             'gender' => $data->gender,
             'email' => $data->email,
             'profile_picture' => $data->picture,
-            // 'updated_at' => $current_datetime
          );
          $this->save($user_data);
          return $this->model_user->get_user(['email' => $data->email]);
