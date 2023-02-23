@@ -35,32 +35,13 @@ class User extends CI_Controller
 			$this->load->view('seminar/daftar');
 			$this->load->view('template/footer');
 		} else {
-
-
-
-
-
-
-
 			$pendaftaran = new Model_pendaftaran;
+			$pembayaran = new Model_pembayaran;
 			$peserta = new Model_peserta;
-
 			$pendaftaran->save();
+			$pembayaran->save();
 			$peserta->save();
 
-
-			$htm = new Model_htm;
-			echo $htm->get_htm($this->input->post('id_seminar'));
-
-
-
-			$pembayaran = new Model_pembayaran;
-			$pembayaran->save();
-
-
-			var_dump($data_pendaftaran);
-			echo "<br>";
-			var_dump($data_peserta);
 
 			redirect(base_url('user/bayar'));
 		}

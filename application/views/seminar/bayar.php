@@ -22,7 +22,7 @@
 
          <h3>invoice# <?= $pembayaran->no_invoice; ?></h3>
          <table>
-            <tr>
+            <!-- <tr>
                <td>Nama </td>
                <td>:</td>
                <td><?= $peserta->nama; ?></td>
@@ -31,7 +31,7 @@
                <td>NIM </td>
                <td>:</td>
                <td><?= $peserta->nim; ?></td>
-            </tr>
+            </tr> -->
             <tr>
                <td>Pembayaran </td>
                <td>:</td>
