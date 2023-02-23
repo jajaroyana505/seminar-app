@@ -9,6 +9,17 @@ class Model_pendaftaran extends CI_Model
          "user_id" => ($this->session->userdata('user_data'))->user_id,
          "tanggal_pendaftaran" => date('d-m-Y')
       );
-      $this->db->insert('pendaftaran', $data);
+      if (!$this->cek_data(['user_id' => $data['user_id']])) {
+         $this->db->insert('pendaftaran', $data);
+      }
+   }
+   public function cek_data($data)
+   {
+      $result = $this->db->get_where('pendaftaran', $data)->num_rows();
+      if ($result == 0) {
+         return false;
+      } else {
+         return true;
+      }
    }
 }

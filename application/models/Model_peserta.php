@@ -55,10 +55,19 @@ class Model_peserta extends CI_Model
          "email" => $this->input->post('email'),
          "no_tlp" => $this->input->post('no_tlp'),
       );
-      $this->db->insert('peserta', $data);
+
+      if (!$this->cek_data(['user_id' => $data['user_id']])) {
+         $this->db->insert('peserta', $data);
+      }
    }
-   public function get_user($data)
+
+   public function cek_data($data)
    {
-      return $this->db->get_where('user', $data)->row_object();
+      $result = $this->db->get_where('peserta', $data)->num_rows();
+      if ($result == 0) {
+         return false;
+      } else {
+         return true;
+      }
    }
 }

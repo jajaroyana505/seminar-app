@@ -1,0 +1,24 @@
+.container-top {
+	margin-top: 8rem !important;
+}
+
+.img-profile {
+	border-radius: 100%;
+}
+.data-profile .value {
+	background-color: #f9f9f9;
+	padding: 9px;
+	font-size: large;
+	font-weight: 400;
+	border-radius: 10px;
+}
+.data-profile .label {
+	color: #a0a0a0;
+	margin-bottom: 3px;
+	/* font-style: italic; */
+}
+
+a.btn {
+	border-radius: 15px;
+	margin-top: 5rem;
+}
