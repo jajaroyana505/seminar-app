@@ -24,12 +24,15 @@ class Model_pembayaran extends CI_Model
    public function save()
    {
       $htm = new Model_htm;
-      $data_pen = $this->db->get_where('pendaftaran', ['user_id' => ($this->session->userdata('user_data'))->user_id])->row_array();
+      $user_id = ($this->session->userdata('user_data'))->user_id;
+      $id_seminar = $this->uri->segment('3');
+      $data_pen = $this->db->get_where('pendaftaran', ['user_id' => $user_id, 'id_seminar' => $id_seminar])->row_array();
+      // die;
       $data = array(
          "user_id" => ($this->session->userdata('user_data'))->user_id,
+         "id_seminar" => $id_seminar,
          "no_invoice" => time(),
          "nominal" => $htm->get_htm($data_pen['id_seminar'])
-
       );
       $data["token_snap"] = $this->buat_token_snap($data);
       $this->db->insert('pembayaran', $data);
@@ -76,6 +79,10 @@ class Model_pembayaran extends CI_Model
    public function getByUserId($id)
    {
       return $this->db->get_where('pembayaran', ['user_id' => $id])->row_object();
+   }
+   public function getByOrderId($id)
+   {
+      return $this->db->get_where('pembayaran', ['no_invoice' => $id])->row_object();
    }
 
    public function cek_data($data)

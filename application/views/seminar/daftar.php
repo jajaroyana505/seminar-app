@@ -7,7 +7,7 @@
                <h2 class="card-title text-center mb-4">
                   Form Pendaftaran
                </h2>
-               <form action="<?= base_url('user/daftar_seminar'); ?>" method="post">
+               <form action="<?= base_url('user/daftar_seminar/') . $this->uri->segment('3'); ?>" method="post">
                   <input type="text" name="id_seminar" value="<?php echo set_value('id_seminar') ?  set_value('id_seminar') : $this->uri->segment('3') ?>" hidden>
                   <div class="row">
                      <div class="col-md-6">

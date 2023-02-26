@@ -26,23 +26,41 @@
                   </p>
                   <div class="d-flex justify-content-between">
                      <p>Nama :</p>
-                     <p>Muhammad jaja</p>
+                     <p><?= $peserta->nama ?></p>
                   </div>
                   <div class="d-flex justify-content-between">
                      <p>NIM :</p>
-                     <p>12210792</p>
+                     <p><?= $peserta->nim ?></p>
                   </div>
                   <div class="d-flex justify-content-between">
                      <p>Semester :</p>
-                     <p>1 (satu)</p>
+                     <p><?= $peserta->semester; ?>
+                        <?php
+                        if ($peserta->semester == 1) {
+                           echo "(satu)";
+                        } else if ($peserta->semester == 2) {
+                           echo "(dua)";
+                        } else if ($peserta->semester == 3) {
+                           echo "(tiga)";
+                        } else if ($peserta->semester == 4) {
+                           echo "(empat)";
+                        } else if ($peserta->semester == 5) {
+                           echo "(lima)";
+                        } else if ($peserta->semester == 6) {
+                           echo "(enam)";
+                        } else if ($peserta->semester == 7) {
+                           echo "(tujuh)";
+                        }
+                        ?>
+                     </p>
                   </div>
                   <div class="d-flex justify-content-between">
                      <p>Program Studi :</p>
-                     <p>Sistem Informasi</p>
+                     <p><?= $peserta->prodi; ?></p>
                   </div>
                   <div class="d-flex justify-content-between">
                      <p>Kampus :</p>
-                     <p>Kampus Cikampek</p>
+                     <p><?= $peserta->kampus; ?></p>
                   </div>
                   <hr>
                   <div class="d-flex justify-content-between">

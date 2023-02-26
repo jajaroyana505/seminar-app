@@ -4,6 +4,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 class Midtrans extends CI_Controller
 {
    private $pembayaran;
+   private $peserta;
    public function __construct()
    {
       parent::__construct();
@@ -17,27 +18,30 @@ class Midtrans extends CI_Controller
       \Midtrans\Config::$is3ds = true;
 
       $this->load->model('model_pembayaran');
+      $this->load->model('model_peserta');
       $this->pembayaran = new Model_pembayaran;
+      $this->peserta = new Model_peserta;
+   }
+   public function index()
+   {
+      echo "index";
    }
    public function notification()
    {
+      $notification = new Midtrans\Notification();
 
-
-      try {
-         $notif = new \Midtrans\Notification();
-      } catch (\Exception $e) {
-         exit($e->getMessage());
-      }
-
-      $notif = $notif->getResponse();
+      $notif = $notification->getResponse();
       $transaction = $notif->transaction_status;
       $type = $notif->payment_type;
       $order_id = $notif->order_id;
+
       $data['status'] = $transaction;
+
 
       if ($transaction == 'settlement') {
          // TODO set payment status in merchant's database to 'Settlement'
          $this->pembayaran->update_status($order_id, $data);
+         $this->peserta->generate_token($order_id);
       } else if ($transaction == 'pending') {
          // TODO set payment status in merchant's database to 'Pending'
          $this->pembayaran->update_status($order_id, $data);

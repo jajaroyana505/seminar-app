@@ -12,6 +12,7 @@ class User extends CI_Controller
 	private $htm;
 
 	private $user_id;
+
 	public function __construct()
 	{
 		parent::__construct();
@@ -46,7 +47,7 @@ class User extends CI_Controller
 		$id_seminar = $this->uri->segment('3');
 		// cek apakan user sudah terdaftar atau belum diseminar tersebut
 		if ($this->pendaftaran->cek_data(['user_id' => $this->user_id, 'id_seminar' => $id_seminar])) {
-			redirect(base_url('user/bayar'));
+			redirect(base_url('user/bayar/') . "$id_seminar");
 		}
 
 
@@ -58,9 +59,10 @@ class User extends CI_Controller
 			$this->load->view('seminar/daftar');
 			$this->load->view('template/footer');
 		} else {
+			$id_seminar = $this->input->post('id_seminar');
 			$this->pendaftaran->save();
 			$this->peserta->save();
-			redirect(base_url('user/bayar'));
+			redirect(base_url("user/bayar/") . "$id_seminar");
 		}
 	}
 
@@ -71,11 +73,14 @@ class User extends CI_Controller
 			redirect(base_url('seminar'));
 		}
 
+		// cek apakah data pembayarana sudah ada atau belum
 		if (!$this->pembayaran->cek_data(['user_id' =>  $this->user_id])) {
 			$this->pembayaran->save();
 		};
+
 		$data = array(
-			"pembayaran" => $this->pembayaran->getByUserId($this->user_id)
+			"pembayaran" => $this->pembayaran->getByUserId($this->user_id),
+			"peserta" => $this->peserta->getByUserId($this->user_id)
 		);
 		$this->load->view('template/header', $data);
 		$this->load->view('template/navbar', $data);
