@@ -80,6 +80,7 @@ class Model_pembayaran extends CI_Model
    {
       return $this->db->get_where('pembayaran', ['user_id' => $id])->row_object();
    }
+
    public function getByOrderId($id)
    {
       return $this->db->get_where('pembayaran', ['no_invoice' => $id])->row_object();

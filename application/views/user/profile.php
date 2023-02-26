@@ -54,7 +54,7 @@
             </div>
          </div>
          <?php
-         if ($data_seminar == null) {
+         if (!$data_seminar == null) {
             $this->load->view('user/my_seminar');
          }
          ?>

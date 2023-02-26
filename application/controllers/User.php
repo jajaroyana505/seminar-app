@@ -10,6 +10,7 @@ class User extends CI_Controller
 	private $pendaftaran;
 	private $pembayaran;
 	private $htm;
+	private $seminar;
 
 	private $user_id;
 
@@ -22,11 +23,13 @@ class User extends CI_Controller
 		$this->load->model('model_pendaftaran');
 		$this->load->model('model_htm');
 		$this->load->model('model_pembayaran');
+		$this->load->model('model_seminar');
 
 		$this->peserta = new Model_peserta;
 		$this->pendaftaran = new Model_pendaftaran;
 		$this->pembayaran = new Model_pembayaran;
 		$this->htm = new Model_htm;
+		$this->seminar = new Model_seminar;
 
 
 		$this->user_id = ($this->session->userdata('user_data'))->user_id;
@@ -35,7 +38,7 @@ class User extends CI_Controller
 	public function index()
 	{
 		$data['user_data'] = $this->session->userdata('user_data');
-		$data['data_seminar'] = null;
+		$data['data_seminar'] = $this->seminar->seminar_user($this->user_id);
 		$this->load->view('template/header');
 		$this->load->view('template/navbar', $data);
 		$this->load->view('user/profile', $data);

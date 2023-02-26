@@ -57,10 +57,8 @@ class Model_user extends CI_Model
    {
       $user_id = rand(100000, 9999999);
       $username = "user$user_id";
-
       $data['user_id'] = $user_id;
       $data['username'] = $username;
-
       $this->db->insert('user', $data);
    }
 }
