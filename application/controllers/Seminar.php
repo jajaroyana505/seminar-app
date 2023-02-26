@@ -18,6 +18,7 @@ class Seminar extends CI_Controller
          "data_seminar" => $this->seminar->getAll()
       );
       $this->load->view('template/header');
+      $this->load->view('template/navbar');
       $this->load->view('seminar/index', $data);
       $this->load->view('template/footer');
    }

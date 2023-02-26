@@ -1,4 +1,4 @@
-<div class="container mt-5" id="seminar">
+<div class="container container-top" id="seminar">
    <div class="display-4 text-center mb-4">
       Seminar & Workshop
    </div>

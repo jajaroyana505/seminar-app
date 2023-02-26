@@ -44,7 +44,10 @@ class Auth extends CI_Controller
 
    public function logout()
    {
+      $this->load->helper('cookie');
       $this->session->unset_userdata('user_data');
+      $this->session->sess_destroy();
+      delete_cookie('google');
 
       echo "Logout berhasil";
       redirect('auth');

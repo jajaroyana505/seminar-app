@@ -7,54 +7,68 @@
    <meta name="viewport" content="width=device-width, initial-scale=1.0">
    <title>detail_pembayaran</title>
 </head>
-<style>
-   .container {
-      width: 500px;
-      border: solid 1px black;
-      padding: 5px;
-   }
-</style>
+
 
 <body>
 
-   <center>
-      <div class="conatiner">
+   <div class="conatiner container-top">
+      <div class="row text-center justify-content-center">
+         <div class="col-xl-4 col-md-5">
+            <div class="card m-3 shadow">
+               <div class="card-header">
+                  <h3 class="card-title">
+                     Pembayaran
+                  </h3>
+               </div>
+               <div class="card-body invoice">
+                  <p class="">
+                     invoice# <?= $pembayaran->no_invoice; ?>
+                  </p>
+                  <div class="d-flex justify-content-between">
+                     <p>Nama :</p>
+                     <p>Muhammad jaja</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                     <p>NIM :</p>
+                     <p>12210792</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                     <p>Semester :</p>
+                     <p>1 (satu)</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                     <p>Program Studi :</p>
+                     <p>Sistem Informasi</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                     <p>Kampus :</p>
+                     <p>Kampus Cikampek</p>
+                  </div>
+                  <hr>
+                  <div class="d-flex justify-content-between">
+                     <p>Pembayarn :</p>
+                     <p>Seminar</p>
+                  </div>
+                  <div class="d-flex justify-content-between">
+                     <p>HTM :</p>
+                     <p>IDR <?= $pembayaran->nominal; ?></p>
+                  </div>
+                  <hr>
+                  <div class="d-flex justify-content-between">
+                     <h5>Total Bayar :</h5>
+                     <h5>Rp <?= number_format(intval($pembayaran->nominal), 2, ',', '.'); ?></h5>
+                  </div>
+                  <div class="d-flex justify-content-between px-5 ">
+                     <a class="btn btn-success" id="pay-button">Bayar</a>
+                     <a class="btn btn-danger">Batalkan</a>
+                  </div>
 
-         <h3>invoice# <?= $pembayaran->no_invoice; ?></h3>
-         <table>
-            <!-- <tr>
-               <td>Nama </td>
-               <td>:</td>
-               <td><?= $peserta->nama; ?></td>
-            </tr>
-            <tr>
-               <td>NIM </td>
-               <td>:</td>
-               <td><?= $peserta->nim; ?></td>
-            </tr> -->
-            <tr>
-               <td>Pembayaran </td>
-               <td>:</td>
-               <td>Seminar </td>
-            </tr>
-            <tr>
-               <td>HTM </td>
-               <td>:</td>
-               <td>IDR <?= $pembayaran->nominal; ?></td>
-            </tr>
-            <tr>
-               <td>Total Bayar </td>
-               <td>:</td>
-               <td>Rp. <?= $pembayaran->nominal; ?></td>
-            </tr>
-         </table>
-
-         <br><br>
-
-         <button id="pay-button">Bayar</button>
+               </div>
+            </div>
+         </div>
       </div>
+   </div>
 
-   </center>
 
 
    <!-- TODO: Remove ".sandbox" from script src URL for production environment. Also input your client key in "data-client-key" -->

@@ -22,4 +22,8 @@ class Model_pendaftaran extends CI_Model
          return true;
       }
    }
+   public function getId_seminar()
+   {
+      $this->db->get_where('pendaftaran', ['id_seminar' => ($this->session->userdata('user_data'))->user_id]);
+   }
 }

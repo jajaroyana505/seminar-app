@@ -8,11 +8,9 @@
       </button>
       <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
          <div class="navbar-nav ms-auto">
-            <a class="nav-link active" aria-current="page" href="#">Home</a>
-            <a class="nav-link active" href="#">About</a>
-            <a class="nav-link active" href="#">Activity</a>
-            <a class="nav-link active" href="#">Gallery</a>
-            <a class="nav-link active" href="#">Seminar & Workshop</a>
+            <a class="nav-link " aria-current="page" href="#">Home</a>
+            <a class="nav-link " href="<?= base_url('seminar'); ?>">Seminar & Workshop</a>
+            <a class="nav-link " href="<?= base_url('user'); ?>">Profile</a>
             <!-- <img class=" img-profile" src="<?= $user_data->profile_picture; ?>" width="40px" alt=""> -->
          </div>
       </div>

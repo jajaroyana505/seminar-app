@@ -24,7 +24,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 |
 */
 $config['base_url'] = 'http://localhost/seminar_app/';
-// $config['base_url'] = 'https://fe36-2001-448a-3000-4159-f4a8-a3b3-c44a-5e0c.ap.ngrok.io/seminar_app/';
+// $config['base_url'] = 'https://fd2b-2001-448a-300d-31f4-f921-724d-b588-cb2e.ap.ngrok.io/seminar_app/';
 
 /*
 |--------------------------------------------------------------------------
