@@ -36,8 +36,8 @@ class Auth extends CI_Controller
    // method yang akan diakses oleh google service
    public function login_google()
    {
-      $result = $this->google->fetch($_GET['code']);
-      $this->session->set_userdata('user_data', $result);
+      $this->google->fetch($_GET['code']);
+
       redirect(base_url('auth'));
    }
 

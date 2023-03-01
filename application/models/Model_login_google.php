@@ -46,7 +46,8 @@ class Model_login_google extends CI_Model
             'profile_picture' => $data->picture,
          );
          $this->save($user_data);
-         return $this->model_user->get_user(['email' => $data->email]);
+         $result = $this->model_user->get_user(['email' => $data->email]);
+         $this->session->set_userdata('user_data', $result);
       }
    }
 

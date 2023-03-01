@@ -79,10 +79,10 @@ class Model_peserta extends CI_Model
       $token = time();
       $this->db->where(['user_id' => $data->user_id, 'id_seminar' => $data->id_seminar]);
       $this->db->update('peserta', ['token_qr' => $token]);
-      $this->generate($token);
+      $this->generate_qr($token);
    }
 
-   public function generate($token)
+   public function generate_qr($token)
    {
       $this->load->library('ciqrcode');
 
@@ -99,6 +99,7 @@ class Model_peserta extends CI_Model
       // perintah untuk membuat qrcode dan menyimpannya dalam folder temp
       QRcode::png($isi, $penyimpanan . "$isi.png");
    }
+
    public function getByUserId($id)
    {
       return $this->db->get_where('peserta', ['user_id' => $id])->row_object();

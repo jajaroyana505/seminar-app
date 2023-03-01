@@ -27,10 +27,6 @@ class Seminar extends CI_Controller
       if (!$this->session->userdata('user_data')) {
          redirect('auth');
       }
-
-
-
-
       echo "halaman daftar";
    }
 }

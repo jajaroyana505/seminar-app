@@ -28,8 +28,6 @@
 
                         <a href="<?= base_url('user/daftar_seminar'); ?>/<?= $seminar->id; ?>" class="btn btn-primary mt-5">Daftar Sekarang</a>
                      </div>
-
-
                   </div>
                </div>
             </div>

@@ -4,14 +4,14 @@
    </div> -->
    <div class="row justify-content-center">
 
-      <div class="col-md-4">
+      <div class="col-md-3">
          <div class="card shadow mb-5 items-center p-3">
-            <img class="mx-auto img-profile mt-5" src="<?= $user_data->profile_picture; ?>" width="70%" alt="">
+            <img class="mx-auto img-profile mt-3" src="<?= $user_data->profile_picture; ?>" width="70%" alt="">
             <div class="card-body text-center mb-3">
-               <h4 class="card-title fw-bolder">
+               <h5 class="card-title ">
                   @<?= $user_data->username; ?>
-               </h4>
-               <span class=fst-normal text-secondary">
+               </h5>
+               <span class="fst-normal text-secondary">
                   id : <?= $user_data->user_id; ?>
                </span>
             </div>
@@ -29,32 +29,34 @@
                <hr>
                <div class="row">
                   <div class="col-md-8">
-                     <div class="data-profile mb-2">
-                        <div class="label">Username</div>
-                        <div class="value">@<?= $user_data->username; ?></div>
+                     <div class="data-profile mb-3">
+                        <small class="label p-2 text-primary">Username</small>
+                        <div class="value mt-1 text-secondary"><?= $user_data->username; ?></div>
                      </div>
-                     <div class="data-profile mb-2">
-                        <div class="label">Nama Lengkap</div>
-                        <div class="value">
+                     <div class="data-profile mb-3">
+                        <small class="label p-2 text-primary">Nama Lengkap</small>
+                        <div class="value mt-1 text-secondary">
                            <?= $user_data->first_name; ?>
                            <?= $user_data->last_name; ?>
                         </div>
                      </div>
-                     <div class="data-profile mb-2">
-                        <div class="label">Email</div>
-                        <div class="value">
+                     <div class="data-profile mb-5">
+                        <small class="label p-2 text-primary">Alamat Email</small>
+                        <div class="value mt-1 text-secondary">
                            <?= $user_data->email; ?>
                         </div>
                      </div>
-                     <a class="btn btn-success me-3" type="button"><i class="fa-solid fa-user-pen"></i> Ubah Profile</a>
-                     <a href="<?= base_url('auth/logout'); ?>" class="btn btn-danger" type="button"><i class="fa-sharp fa-solid fa-power-off"></i> LogOut</a>
+                     <div class="ms-auto">
+                        <a class="btn btn-primary me-3" type="button"><i class="fa-solid fa-user-pen"></i> Ubah Profile</a>
+                        <a href="<?= base_url('auth/logout'); ?>" class="btn btn-danger" type="button"><i class="fa-sharp fa-solid fa-power-off"></i> LogOut</a>
+                     </div>
                   </div>
 
                </div>
             </div>
          </div>
          <?php
-         if (!$data_seminar == null) {
+         if ($data_seminar != null) {
             $this->load->view('user/my_seminar');
          }
          ?>
