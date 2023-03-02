@@ -30,18 +30,18 @@
                <div class="row">
                   <div class="col-md-8">
                      <div class="data-profile mb-3">
-                        <small class="label p-2 text-primary">Username</small>
+                        <small class="label p-2 ">Username</small>
                         <div class="value mt-1 text-secondary"><?= $user_data->username; ?></div>
                      </div>
                      <div class="data-profile mb-3">
-                        <small class="label p-2 text-primary">Nama Lengkap</small>
+                        <small class="label p-2 ">Nama Lengkap</small>
                         <div class="value mt-1 text-secondary">
                            <?= $user_data->first_name; ?>
                            <?= $user_data->last_name; ?>
                         </div>
                      </div>
                      <div class="data-profile mb-5">
-                        <small class="label p-2 text-primary">Alamat Email</small>
+                        <small class="label p-2 ">Alamat Email</small>
                         <div class="value mt-1 text-secondary">
                            <?= $user_data->email; ?>
                         </div>

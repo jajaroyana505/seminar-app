@@ -20,7 +20,8 @@ class Auth extends CI_Controller
       if (!$this->session->userdata('user_data')) {
          $this->login(); //jika tidak ada  panggil fungsi login
       } else {
-         redirect(base_url('user')); // jika ada panggil fungsi redirect
+         // redirect(base_url('user')); // jika ada panggil fungsi redirect
+         echo "<script>window.location=history.go(-1);</script>";
       }
    }
 
@@ -28,9 +29,13 @@ class Auth extends CI_Controller
    {
       // set data yang akan dikirimkan ke view login
       $data['url_auth_google'] = $this->google->getUrl(); //mengambil url dari google service
+      $data['title'] = "Login ";
 
       // memanggil view login
-      $this->load->view('login', $data);
+      $this->load->view('template/header', $data);
+      $this->load->view('template/navbar', $data);
+      $this->load->view('auth/login', $data);
+      $this->load->view('template/footer', $data);
    }
 
    // method yang akan diakses oleh google service

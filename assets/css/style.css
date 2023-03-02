@@ -2,6 +2,7 @@
 
 body {
 	font-family: "poppins";
+	/* font-size: 10px !important; */
 }
 
 .container-top {
@@ -32,4 +33,8 @@ body {
 	background-color: #adadad;
 	background-image: url("../img/bg-kertas.jpg") !important;
 	background-size: cover;
+}
+
+.alert {
+	margin-top: 5rem !important;
 }

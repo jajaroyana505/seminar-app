@@ -21,4 +21,14 @@
          </div>
       </div>
    </div>
+
+   <!-- Menampikan alert -->
+   <?php if ($this->session->flashdata('pesan')) { ?>
+      <div class="position-absolute alert alert-<?= ($this->session->flashdata('pesan'))['type']; ?> position-relative z-3" style="width: 100%; margin-top:10rem;" role="alert" data-bs-dismiss="alert">
+         <div class="container text-center ">
+            <?= ($this->session->flashdata('pesan'))['isi']; ?>
+         </div>
+      </div>
+   <?php } ?>
+
 </nav>
